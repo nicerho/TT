@@ -21,6 +21,6 @@
 		<beans:property name="suffix" value=".jsp"></beans:property>
 	</beans:bean>
 
-	<beans:bean class="sp1.webpage"></beans:bean>
+	<beans:bean class="sp1.webpage2"></beans:bean>
 
 </beans:beans>

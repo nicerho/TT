@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<form id="f" method="post" action="./spring2ok.do">
+	메일수신 : <input type="checkbox" value="Y" name="mail"> 동의함 <br>
+	<input type="button" value="전송" onclick="agree()">
+	광고수신 : <input type="radio" name="ad" value="Y" checked> 동으함
+	<input type="radio" name="ad" value="N">동으안함
+	
+	
+</form>
+</body>
+<script>
+	function agree(){
+		f.submit();
+	}
+</script>
+</html>

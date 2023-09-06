@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<script>
+	var data = "${name}"
+	console.log(data)
+</script>
+<body>
+<form id="f" method="post" action="spring4ok.do">
+	<input type="hidden" name="address" value="nicehoh@naver.com">
+고객명 : <input type="text" name="a"><br> 
+메일 : <input type="text" name="b"><br>
+제목 : <input type="text" name="c"><br>
+내용 : <input type="text" name="d"><br>
+<input type="button" value="제출" onclick="abc()">
+</form>
+</body>
+<script>
+	function abc(){
+		f.submit();
+	}
+</script>
+</html>

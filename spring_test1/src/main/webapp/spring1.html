@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<title>spring 2</title>
+</head>
+<script>
+	//팝업창에 상품 리스트 출력
+	//window.open("팝업으로 띄울 파일명","_self,_blank,_top 등 페이지를 어떻게 띄울지 설정, 공백일시 _blank가 기본","팝업창의 사이즈 및 구조 설정")
+	function pop_list() {
+	window.open("./popup.html","","width=200 height=200");
+	}
+	function save_post(){
+		if(f.pcode.value==""){
+			alert("빈 값 전송 불가")
+		} else{
+			f.submit();
+		}
+	}
+</script>
+
+<body>
+	<form id="f" method="post" action="./springok.do">
+		상품코드 : <input type="text" name="pcode" readonly><br>
+		상품명 : <input type="text" name="pname" readonly><br>
+		<input type="button" value="search" onclick="pop_list()">
+		<input type="button" value="submit" onclick="save_post()">
+	</form>
+</body>
+
+</html>

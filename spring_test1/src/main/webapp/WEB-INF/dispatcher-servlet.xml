@@ -13,11 +13,11 @@
 		<property name="prefix" value="/"></property>
 		<property name="suffix" value=".jsp"></property>
 	</bean>
-	<mvc:resources location="/" mapping="/*.html"></mvc:resources>
+	<!-- <mvc:resources location="/" mapping="/*.html"></mvc:resources>
 	<mvc:resources location="/" mapping="/*.js"></mvc:resources>
-	<mvc:resources location="/" mapping="/*.css"></mvc:resources>
+	<mvc:resources location="/" mapping="/*.css"></mvc:resources> -->
 	<mvc:resources location="/" mapping="/*.*"></mvc:resources>
 	<!-- <annotation-driven> <resources location="/" mappign="/.html"></resources> 
 		</annotation-driven> -->
 
-</beans>
+</beans>	
