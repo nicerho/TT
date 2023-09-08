@@ -1,6 +1,5 @@
 package sp1;
 
-import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -18,9 +17,24 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class webpage2 {
+	//JSTL로 view출력
+	@RequestMapping("/product_list.do")
+	public String pd_list(HttpServletRequest req, Model model) {
+		List<ArrayList<String>> product_data;
+		try {
+			Product_List pl = new Product_List();
+			product_data = pl.productlist();
+			req.setAttribute("pd", product_data);
+		}catch(Exception e) {
+			System.out.println(e);
+		}
+		return "WEB-INF/jsp/productlist";
+	}
+
 	@PostMapping("/springok.do")
 	public String product(HttpServletRequest req, Model model) {
 
@@ -109,9 +123,32 @@ public class webpage2 {
 		List<String> list = new ArrayList<>(Arrays.asList(data));
 		// req.setAttribute("person_list",list);
 		model.addAttribute("person_list", list);
-		model.addAttribute("person_delete","10");
+		model.addAttribute("person_delete", "10");
 		return "WEB-INF/jsp/spring5_2ok";
 		// return "WEB-INF/jsp/spring5ok";
+	}
+
+	@RequestMapping("/spring6ok.do")
+	public String userList(HttpServletRequest req, Model model) {
+		String search = req.getParameter("search");
+		String part = req.getParameter("part");
+		List<ArrayList<String>> member_data;
+		try {
+			// 검색 없을경우
+			if (search == null || search == "" || search == "null") {
+				User_List ul = new User_List();
+				member_data = ul.listData();
+			} else { // 검색 있을경우
+				User_List ul = new User_List();
+				member_data = ul.listData(search, part);
+			}
+			// jsp
+			req.setAttribute("total", new User_List().total_member()); // 가입자 수 카운팅
+			req.setAttribute("md", member_data);
+			req.setAttribute("part", part);
+		} catch (Exception e) {
+		}
+		return "WEB-INF/jsp/member_list";
 	}
 
 }
